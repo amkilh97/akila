@@ -1,7 +1,7 @@
 Flask
 NRCLex
 gunicorn
-OrderedDict
+pandas
 requests
 Api
 Resource
