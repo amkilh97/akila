@@ -1,9 +1,9 @@
 Flask
 NRCLex
 gunicorn
-pandas
 requests
 Api
 Resource
 flask_restful
 sklearn
+pandas
