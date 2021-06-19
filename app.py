@@ -15,7 +15,7 @@ def get():
     hp=float(request.args['HP'])
     ecg=float(request.args['Ecg'])
     temp=float(request.args['Temp'])
-    data='framingham.csv'
+    data='heart.csv'
     df=pd.read_csv(data,na_values='',na_filter='0')
     fname=['age','sex','trestbps','restecg','thalach','temp']
     tname=['target']
