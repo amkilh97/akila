@@ -11,19 +11,18 @@ app=Flask(__name__)
 def get():
     male=float(request.args['Male'])
     age=float(request.args['Age'])
-    smoking=float(request.args['Smoking'])
-    chol=float(request.args['Chol'])
     bp=float(request.args['BP'])
-    hrate=float(request.args['Hrate'])
-    glue=float(request.args['Glue'])
+    hp=float(request.args['HP'])
+    ecg=float(request.args['Ecg'])
+    temp=float(request.args['Temp'])
     data='framingham.csv'
     df=pd.read_csv(data,na_values='',na_filter='0')
-    fname=['male','age','cigsPerDay','totChol','sysBP','heartRate','glucose']
-    tname=['TenYearCHD']
+    fname=['age','sex','trestbps','restecg','thalach','temp']
+    tname=['target']
     x=df[fname]
     y=df[tname]
     x_train,x_test,y_train,y_test=train_test_split(x,y,test_size=0.000001,random_state=123)
-    new_data=OrderedDict([('male',male),('age',age),('cigsPerDay',smoking),('totChol',chol),('sysBP',bp),('heartRate',hrate),('glucose',glue)])
+    new_data=OrderedDict([('age',age),('sex',sex),('trestbps',bp),('restecg',ecg),('thalach',hp),('temp',temp)])
     new_data=pd.Series(new_data).values.reshape(1,-1)
     linear_regression_model = LinearRegression()
     linear_regression_model.fit(x_train,y_train)
