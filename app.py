@@ -22,7 +22,7 @@ def get():
     x=df[fname]
     y=df[tname]
     x_train,x_test,y_train,y_test=train_test_split(x,y,test_size=0.000001,random_state=123)
-    new_data=OrderedDict([('age',age),('sex',sex),('trestbps',bp),('restecg',ecg),('thalach',hp),('temp',temp)])
+    new_data=OrderedDict([('age',age),('sex',male),('trestbps',bp),('restecg',ecg),('thalach',hp),('temp',temp)])
     new_data=pd.Series(new_data).values.reshape(1,-1)
     linear_regression_model = LinearRegression()
     linear_regression_model.fit(x_train,y_train)
